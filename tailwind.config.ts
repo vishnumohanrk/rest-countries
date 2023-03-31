@@ -15,6 +15,10 @@ const twConfig = {
     },
   },
 
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+
   plugins: [headlessUI],
 } satisfies Config;
 
