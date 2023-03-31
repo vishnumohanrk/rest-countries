@@ -26,7 +26,9 @@ export function CountryCard({
           className="aspect-video w-full object-cover"
         />
         <div className="p-6">
-          <h2 className="text-xl font-bold">{name}</h2>
+          <h3 className="truncate text-xl font-bold" title={name}>
+            {name}
+          </h3>
           <dl className="my-4">
             <InfoText keyText="Population" value={population} />
             <InfoText keyText="Region" value={region} />
