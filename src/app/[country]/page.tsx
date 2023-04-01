@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { getCountryDetails } from '@/lib/api';
+import { getCountryDetails, getCountryList } from '@/lib/api';
 
 import { BorderList } from './border-list';
 import { DetailsList } from './details-list';
@@ -37,6 +37,11 @@ export async function generateMetadata({ params: { country } }: PageProps) {
   const { name } = await getCountryDetails(country);
 
   return {
-    title: `${name} | Frontend Mentor | Rest Countries`,
+    title: `${name} | Rest Countries | Frontend Mentor Challenge`,
   };
+}
+
+export async function generateStaticParams() {
+  const list = await getCountryList();
+  return list.map((i) => ({ country: i.name }));
 }

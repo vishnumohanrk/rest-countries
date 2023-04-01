@@ -27,8 +27,10 @@ async function getCodesToNames() {
 }
 
 async function getFullList(): Promise<TCountry[]> {
-  const resp = await fetch(API_URLS.ALL);
-  const codesToNames = await getCodesToNames();
+  const [resp, codesToNames] = await Promise.all([
+    fetch(API_URLS.ALL, { next: { revalidate: 2592000 } }),
+    getCodesToNames(),
+  ]);
 
   if (resp.ok) {
     const data: TResp[] = await resp.json();
