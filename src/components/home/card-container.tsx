@@ -6,7 +6,7 @@ type CardContainerProps = {
 export function CardContainer({ children, isPending }: CardContainerProps) {
   return (
     <section
-      className={`pb-20 transition-opacity ${
+      className={`transition-opacity ${
         isPending ? 'opacity-50' : 'opacity-100'
       }`}
     >

@@ -5,11 +5,11 @@ import { BorderList } from './border-list';
 import { DetailsList } from './details-list';
 import { GoBack } from './go-back';
 
-export default async function CountryPage({
-  params: { country },
-}: {
+type PageProps = {
   params: { country: string };
-}) {
+};
+
+export default async function CountryPage({ params: { country } }: PageProps) {
   const { name, flag, borders, ...rest } = await getCountryDetails(country);
 
   return (
@@ -31,4 +31,12 @@ export default async function CountryPage({
       </section>
     </>
   );
+}
+
+export async function generateMetadata({ params: { country } }: PageProps) {
+  const { name } = await getCountryDetails(country);
+
+  return {
+    title: `${name} | Frontend Mentor | Rest Countries`,
+  };
 }
