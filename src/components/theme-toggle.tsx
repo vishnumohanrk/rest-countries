@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const { setTheme, theme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -18,10 +18,10 @@ export function ThemeToggle() {
   }
 
   function handleClick() {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
   }
 
-  const Icon = theme === 'light' ? MoonOutline : MoonSolid;
+  const Icon = resolvedTheme === 'light' ? MoonOutline : MoonSolid;
 
   return (
     <button

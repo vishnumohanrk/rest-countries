@@ -5,6 +5,7 @@ import type { TCountryCard } from '@/lib/types';
 
 import { CardContainer } from './card-container';
 import { CountryCard } from './country-card';
+import { FormContainer } from './form-container';
 import { RegionFilter } from './region-filter';
 import { SearchBar } from './search-bar';
 
@@ -14,10 +15,10 @@ export function HomePage({ fullList }: { fullList: TCountryCard[] }) {
 
   return (
     <>
-      <form className="justify-between py-6 max-md:text-sm md:flex md:py-8">
+      <FormContainer>
         <SearchBar value={query} onChange={handleInp} />
         <RegionFilter selectedRegion={region} onChange={handleDropDown} />
-      </form>
+      </FormContainer>
       <CardContainer isPending={isPending}>
         {displayData.map((i) => (
           <CountryCard key={i.name} {...i} />
