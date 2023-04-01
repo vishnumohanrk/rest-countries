@@ -4,13 +4,15 @@ export type TResp = {
   capital: string;
   region: string;
   population: number;
-  borders: string[];
+  borders: string[] | undefined;
   nativeName: string;
-  currencies: { name: string }[];
+  currencies: { name: string }[] | undefined;
   languages: { name: string }[];
   flag: string;
   cioc: string;
-  independent: boolean;
+  alpha2Code: string;
+  alpha3Code: string;
+  subregion: string;
 };
 
 type TConvertToString<T, E extends keyof T> = Pick<T, E> & {
