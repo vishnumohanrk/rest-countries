@@ -15,7 +15,7 @@ export function CountryCard({
   return (
     <li>
       <Link
-        href={`/${name}`}
+        href={`/${encodeURIComponent(name)}`}
         className="block origin-bottom overflow-hidden rounded-md bg-white shadow-md transition-transform duration-200 will-change-transform hover:scale-105 focus:scale-105 dark:bg-slate-800"
       >
         <img

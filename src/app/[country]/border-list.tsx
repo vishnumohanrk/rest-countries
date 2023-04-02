@@ -10,7 +10,7 @@ export function BorderList({ borders }: Pick<TCountry, 'borders'>) {
         {borders.map((i) => (
           <li key={i}>
             <Link
-              href={`/${i}`}
+              href={`/${encodeURIComponent(i)}`}
               className="block rounded-md bg-white px-5 py-1 shadow-md dark:bg-slate-800"
             >
               {i}
